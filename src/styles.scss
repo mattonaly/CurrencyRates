@@ -56,6 +56,26 @@ body {
     span:not(.p-highlight):not(.p-disabled):hover {
     background-color: rgb(35, 38, 39);
   }
+  .p-column-filter-menu-button:hover {
+    color: rgb(181, 175, 166);
+    border-color: rgba(140, 130, 115, 0);
+    background-color: rgb(35, 38, 39);
+  }
+  .p-column-filter-overlay {
+    background-color: rgb(24, 26, 27);
+    color: rgb(181, 175, 166);
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px -1px,
+      rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
+  }
+  .p-column-filter-menu-button.p-column-filter-menu-button-open,
+  .p-column-filter-menu-button.p-column-filter-menu-button-open:hover {
+    background-color: rgb(35, 38, 39);
+    color: rgb(181, 175, 166);
+  }
+  .p-column-filter-overlay-menu .p-column-filter-operator {
+    color: rgb(181, 175, 166);
+    background-color: rgb(27, 30, 31);
+  }
   .p-datatable .p-datatable-thead > tr > th {
     border-color: rgb(53, 58, 60);
     color: rgb(181, 175, 166);
