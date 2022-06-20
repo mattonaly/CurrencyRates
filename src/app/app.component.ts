@@ -1,9 +1,11 @@
-import { RatesService } from './services/rates.service';
-import { Rate } from './models/Rate';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Table } from 'primeng/table';
-import { takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
+
+import { Rate } from './models/Rate';
+import { RatesService } from './services/rates.service';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,10 @@ export class AppComponent implements OnInit, OnDestroy {
   rateItems$ = this.ratesServices.getRates$().pipe(
     takeUntil(this.destroy$),
     tap((rates) => {
+      if (rates instanceof HttpErrorResponse) {
+        this.handleErrorResponse(rates);
+      }
+
       this.rates = rates;
       this.loading = false;
     })
@@ -64,17 +70,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onCalendarChange(event: any) {
-    if (
-      this.error.notFound ||
-      this.error.badRequest ||
-      this.error.limitExceeded ||
-      this.error.invalidDate
-    ) {
-      this.error.notFound = false;
-      this.error.badRequest = false;
-      this.error.limitExceeded = false;
-      this.error.invalidDate = false;
-    }
+    this.resetErrors();
 
     if (event > new Date()) {
       this.error.invalidDate = true;
@@ -92,21 +88,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.rates = [];
         this.loading = false;
 
-        if (error.status === 404) {
-          this.error.notFound = true;
-        }
-
-        if (
-          error.status === 400 &&
-          error.error.message === 'Bad Request - Limit exceeded'
-        ) {
-          this.error.limitExceeded = true;
-          return;
-        }
-
-        if (error.status === 400) {
-          this.error.badRequest = true;
-        }
+        this.handleErrorResponse(error);
       }
     );
   }
@@ -117,7 +99,39 @@ export class AppComponent implements OnInit, OnDestroy {
       localStorage.theme = 'dark';
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.removeItem('theme');
+      localStorage.theme = 'light';
+    }
+  }
+
+  resetErrors(): void {
+    if (
+      this.error.notFound ||
+      this.error.badRequest ||
+      this.error.limitExceeded ||
+      this.error.invalidDate
+    ) {
+      this.error.notFound = false;
+      this.error.badRequest = false;
+      this.error.limitExceeded = false;
+      this.error.invalidDate = false;
+    }
+  }
+
+  handleErrorResponse(error: HttpErrorResponse): void {
+    if (error.status === 404) {
+      this.error.notFound = true;
+    }
+
+    if (
+      error.status === 400 &&
+      error.error.message === 'Bad Request - Limit exceeded'
+    ) {
+      this.error.limitExceeded = true;
+      return;
+    }
+
+    if (error.status === 400) {
+      this.error.badRequest = true;
     }
   }
 
