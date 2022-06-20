@@ -1,1 +1,135 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  padding: 2em;
+  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica,
+    Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
+}
+
+@import "~primeng/resources/themes/saga-blue/theme.css";
+
+.dark {
+  body {
+    background-color: #181a1b;
+    color: #e8e6e3;
+  }
+
+  .p-datatable .p-datatable-header {
+    background-color: rgb(27, 30, 31);
+    color: rgb(181, 175, 166);
+    border-color: rgb(53, 58, 60);
+  }
+  .p-inputtext {
+    color: rgb(181, 175, 166);
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(60, 65, 68);
+  }
+  .p-datepicker {
+    background-color: rgb(24, 26, 27);
+    color: rgb(181, 175, 166);
+    border-color: rgb(60, 65, 68);
+  }
+  .p-datepicker .p-datepicker-header {
+    color: rgb(181, 175, 166);
+    background-color: rgb(24, 26, 27);
+    border-bottom-color: rgb(56, 61, 63);
+  }
+  .p-datepicker:not(.p-datepicker-inline) {
+    background-color: rgb(24, 26, 27);
+    border-color: initial;
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px -1px,
+      rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
+  }
+  .p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {
+    background-color: rgb(24, 26, 27);
+  }
+  .p-datepicker table td.p-datepicker-today > span {
+    background-color: rgb(48, 52, 54);
+    color: rgb(181, 175, 166);
+  }
+  .p-datepicker table td.p-datepicker-today > span.p-highlight {
+    color: rgb(181, 175, 166);
+    background-color: rgb(32, 35, 37);
+  }
+  .p-datepicker:not(.p-disabled)
+    table
+    td
+    span:not(.p-highlight):not(.p-disabled):hover {
+    background-color: rgb(35, 38, 39);
+  }
+  .p-datatable .p-datatable-thead > tr > th {
+    border-color: rgb(53, 58, 60);
+    color: rgb(181, 175, 166);
+    background-color: rgb(27, 30, 31);
+  }
+  .p-datatable .p-sortable-column.p-highlight:hover {
+    background-color: rgb(35, 38, 39);
+    color: rgb(51, 162, 244);
+  }
+  .p-datatable .p-sortable-column:not(.p-highlight):hover {
+    background-color: rgb(35, 38, 39);
+    color: rgb(181, 175, 166);
+  }
+  .p-datatable .p-datatable-tbody > tr {
+    background-color: rgb(24, 26, 27);
+    color: rgb(181, 175, 166);
+    outline-color: rgb(7, 72, 123);
+  }
+  .p-datatable .p-datatable-tbody > tr > td {
+    border-color: rgb(53, 58, 60);
+  }
+  .p-paginator {
+    background-color: rgb(24, 26, 27);
+    color: rgb(158, 150, 137);
+    border-color: rgb(53, 58, 60);
+  }
+  .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background-color: rgb(32, 35, 37);
+    border-color: rgb(7, 63, 104);
+    color: rgb(181, 175, 166);
+  }
+  .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+    background-color: rgb(35, 38, 39);
+    color: rgb(181, 175, 166);
+  }
+  .p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
+  .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
+  .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
+  .p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
+    background-color: rgb(35, 38, 39);
+    color: rgb(181, 175, 166);
+  }
+  .p-dropdown {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(60, 65, 68);
+  }
+  .p-dropdown .p-dropdown-trigger {
+    color: rgb(158, 150, 137);
+  }
+  .p-dropdown-panel {
+    background-color: rgb(24, 26, 27);
+    color: rgb(181, 175, 166);
+    border-color: initial;
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px -1px,
+      rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
+  }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    color: rgb(181, 175, 166);
+    background-color: rgb(32, 35, 37);
+  }
+  .p-dropdown-panel
+    .p-dropdown-items
+    .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+    color: rgb(181, 175, 166);
+    background-color: rgb(35, 38, 39);
+  }
+  .p-selectbutton .p-button {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(60, 65, 68);
+    color: rgb(181, 175, 166);
+  }
+  .p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {
+    background-color: rgb(35, 38, 39);
+    border-color: rgb(60, 65, 68);
+    color: rgb(181, 175, 166);
+  }
+}
