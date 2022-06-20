@@ -40,8 +40,6 @@ export class AppComponent implements OnInit, OnDestroy {
     invalidDate: false,
   };
 
-  activityValues: number[] = [0, 100];
-
   stateOptions = [
     { label: 'Ciemny', value: 'dark' },
     { label: 'Jasny', value: 'light' },
@@ -62,6 +60,7 @@ export class AppComponent implements OnInit, OnDestroy {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
+      this.darkMode = 'light';
     }
   }
 
